@@ -1,0 +1,31 @@
+#an example of how it would work, no database yet
+def chatbot_response(user_input):
+    responses = {
+        "こんにちは": "こんにちは！",
+        "先生": "はい、どのような質問がありますか？",
+        "生徒": "こんにちは！何かお手伝いできることはありますか？",
+        "勉強": "勉強は大切ですね。どの科目が苦手ですか？",
+        "宿題": "宿題がある場合は、早めに取り組むことをおすすめします。",
+        "お疲れ様": "お疲れ様です！頑張っていますね。",
+        "ありがとう": "どういたしまして。お手伝いできることがあれば教えてください。",
+        "デフォルト": "すみません、よく分かりませんでした。もう一度お願いします。"
+    }
+
+    user_input = user_input.strip()
+    response = responses.get(user_input, responses["デフォルト"])
+    return response
+
+def main():
+    print("Chatbot: こんにちは！先生と生徒の環境に関する質問をしてください。終了するには 'さようなら' と入力してください。")
+
+    while True:
+        user_input = input("あなた: ")
+        if user_input == "さようなら":
+            print("Chatbot: さようなら！お疲れ様でした。")
+            break
+
+        response = chatbot_response(user_input)
+        print("Chatbot:", response)
+
+if __name__ == "__main__":
+    main()
